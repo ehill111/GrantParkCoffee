@@ -1,6 +1,6 @@
 using System;
 
-namespace EnclaveGrantParkCoffeeShop.Models
+namespace GrantParkCoffeeShop2.Models
 {
     public class ErrorViewModel
     {

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using EnclaveGrantParkCoffeeShop.Models;
+using GrantParkCoffeeShop2.Models;
 
-namespace EnclaveGrantParkCoffeeShop.Controllers
+namespace GrantParkCoffeeShop2.Controllers
 {
     public class HomeController : Controller
     {

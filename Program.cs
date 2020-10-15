@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace EnclaveGrantParkCoffeeShop
+namespace GrantParkCoffeeShop2
 {
     public class Program
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnclaveGrantParkCoffeeShop.Models
+namespace GrantParkCoffeeShop2.Models
 {
     public class Product
     {

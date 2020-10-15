@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EnclaveGrantParkCoffeeShop.Models
+namespace GrantParkCoffeeShop2.Models
 {
     public class RoomReservation
     {
