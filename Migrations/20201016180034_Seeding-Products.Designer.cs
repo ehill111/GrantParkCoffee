@@ -4,88 +4,22 @@ using GrantParkCoffeeShop2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GrantParkCoffeeShop2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201016180034_Seeding-Products")]
+    partial class SeedingProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("GrantParkCoffeeShop2.Models.Customer", b =>
-                {
-                    b.Property<int>("CustomerId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RewardPointsBalance")
-                        .HasColumnType("int");
-
-                    b.Property<string>("State")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StreetAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ZipCode")
-                        .HasColumnType("int");
-
-                    b.HasKey("CustomerId");
-
-                    b.ToTable("Customer");
-                });
-
-            modelBuilder.Entity("GrantParkCoffeeShop2.Models.Order", b =>
-                {
-                    b.Property<int>("OrderId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("OrderAmountTotal")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("OrderFulfilled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("OrderInstructions")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("OrderPending")
-                        .HasColumnType("bit");
-
-                    b.HasKey("OrderId");
-
-                    b.HasIndex("CustomerId");
-
-                    b.ToTable("Order");
-                });
 
             modelBuilder.Entity("GrantParkCoffeeShop2.Models.Product", b =>
                 {
@@ -115,82 +49,108 @@ namespace GrantParkCoffeeShop2.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("Product");
-                });
 
-            modelBuilder.Entity("GrantParkCoffeeShop2.Models.ProductSalesHistory", b =>
-                {
-                    b.Property<int>("ProductSalesHistoryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductSalesHistoryId");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductSalesHistory");
-                });
-
-            modelBuilder.Entity("GrantParkCoffeeShop2.Models.RoomReservation", b =>
-                {
-                    b.Property<int>("RoomReservationId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ReservationCustomerName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ReservationStartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ReservationStopDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ReservationTimeStart")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ReservationTimeStop")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("RoomReservationId");
-
-                    b.HasIndex("CustomerId");
-
-                    b.ToTable("RoomReservation");
-                });
-
-            modelBuilder.Entity("GrantParkCoffeeShop2.Models.ShoppingCart", b =>
-                {
-                    b.Property<int>("ShoppingCartId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ShoppingCartId");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ShoppingCart");
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            ProductFeatured = false,
+                            ProductName = "Bacon, Egg, and Cheese Croissant",
+                            ProductOnDiscountSale = false,
+                            ProductPrice = 6.9900000000000002,
+                            ProductType = "Food",
+                            RewardEligible = true
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            ProductFeatured = true,
+                            ProductName = "Chicken Salad Sandwich",
+                            ProductOnDiscountSale = false,
+                            ProductPrice = 6.9900000000000002,
+                            ProductType = "Food",
+                            RewardEligible = true
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            ProductFeatured = false,
+                            ProductName = "Creamy Cheese Grits",
+                            ProductOnDiscountSale = false,
+                            ProductPrice = 2.9900000000000002,
+                            ProductType = "Food",
+                            RewardEligible = true
+                        },
+                        new
+                        {
+                            ProductId = 4,
+                            ProductFeatured = false,
+                            ProductName = "Spinach Salad",
+                            ProductOnDiscountSale = false,
+                            ProductPrice = 6.9900000000000002,
+                            ProductType = "Food",
+                            RewardEligible = true
+                        },
+                        new
+                        {
+                            ProductId = 5,
+                            ProductFeatured = false,
+                            ProductName = "Banana Nut Bread",
+                            ProductOnDiscountSale = false,
+                            ProductPrice = 2.9900000000000002,
+                            ProductType = "Dessert",
+                            RewardEligible = true
+                        },
+                        new
+                        {
+                            ProductId = 6,
+                            ProductFeatured = false,
+                            ProductName = "Chocolate Chip Skone",
+                            ProductOnDiscountSale = false,
+                            ProductPrice = 2.9900000000000002,
+                            ProductType = "Dessert",
+                            RewardEligible = true
+                        },
+                        new
+                        {
+                            ProductId = 7,
+                            ProductFeatured = false,
+                            ProductName = "Blueberry Muffin",
+                            ProductOnDiscountSale = false,
+                            ProductPrice = 2.9900000000000002,
+                            ProductType = "Dessert",
+                            RewardEligible = true
+                        },
+                        new
+                        {
+                            ProductId = 8,
+                            ProductFeatured = false,
+                            ProductName = "Coffee",
+                            ProductOnDiscountSale = false,
+                            ProductPrice = 2.4900000000000002,
+                            ProductType = "Beverage",
+                            RewardEligible = true
+                        },
+                        new
+                        {
+                            ProductId = 9,
+                            ProductFeatured = false,
+                            ProductName = "Juice",
+                            ProductOnDiscountSale = false,
+                            ProductPrice = 2.9900000000000002,
+                            ProductType = "Beverage",
+                            RewardEligible = true
+                        },
+                        new
+                        {
+                            ProductId = 10,
+                            ProductFeatured = false,
+                            ProductName = "Water",
+                            ProductOnDiscountSale = false,
+                            ProductPrice = 1.49,
+                            ProductType = "Beverage",
+                            RewardEligible = false
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -218,6 +178,15 @@ namespace GrantParkCoffeeShop2.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "825a4781-1f5a-4e38-9bf0-a74699779b11",
+                            ConcurrencyStamp = "819ac68a-0bc5-4685-bb70-fde57de01b60",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -391,54 +360,6 @@ namespace GrantParkCoffeeShop2.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("GrantParkCoffeeShop2.Models.Order", b =>
-                {
-                    b.HasOne("GrantParkCoffeeShop2.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("GrantParkCoffeeShop2.Models.ProductSalesHistory", b =>
-                {
-                    b.HasOne("GrantParkCoffeeShop2.Models.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GrantParkCoffeeShop2.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("GrantParkCoffeeShop2.Models.RoomReservation", b =>
-                {
-                    b.HasOne("GrantParkCoffeeShop2.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("GrantParkCoffeeShop2.Models.ShoppingCart", b =>
-                {
-                    b.HasOne("GrantParkCoffeeShop2.Models.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GrantParkCoffeeShop2.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
