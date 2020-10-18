@@ -52,7 +52,9 @@ namespace GrantParkCoffeeShop2.Controllers
                 {
                     cart.Add(new Item { Product = productViewModel.find(id), Quantity = 1 });
                 }
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
             }
+            return RedirectToAction("Index");
         }
     }
 }
