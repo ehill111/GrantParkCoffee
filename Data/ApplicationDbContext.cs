@@ -11,6 +11,7 @@ namespace GrantParkCoffeeShop2.Data
     public class ApplicationDbContext : IdentityDbContext
     {
         public object modelBuilder;
+        internal List<Product> products;
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
