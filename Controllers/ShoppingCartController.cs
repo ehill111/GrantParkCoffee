@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GrantParkCoffeeShop2.Helpers;
 using GrantParkCoffeeShop2.Models;
+using GrantParkCoffeeShop2.ViewsOfShop;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GrantParkCoffeeShop2.Controllers
@@ -27,9 +28,17 @@ namespace GrantParkCoffeeShop2.Controllers
                 {
                     return i;
                 }
-            }
+            } 
             return -1;
         }
-
+        public IActionResult Buy(string id)
+        {
+            ProductViewModel productViewModel = new ProductViewModel(); 
+            if(SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart") == null)
+            {
+                List<Item> cart = new List<Item>();
+                cart.Add(new Item { Product = productViewModel.find(id), Quantity = 1 });
+            }
+        }
     }
 }

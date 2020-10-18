@@ -14,7 +14,7 @@ namespace GrantParkCoffeeShop2.ViewsOfShop
 
         public List<Product> findAllProducts()//Method to see list.  
         {
-            var products = db.Product.ToList();
+            var products = Product.ToList();
             return View(products);
         }
 
