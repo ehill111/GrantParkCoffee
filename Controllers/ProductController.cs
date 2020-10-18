@@ -23,6 +23,7 @@ namespace GrantParkCoffeeShop2.Controllers
             var products = db.Product.ToList();
             return View(products);
         }
+
         //public List<Product> _products { get; set; }//Declared list.
         //public int Id { get; private set; }
 
@@ -41,6 +42,6 @@ namespace GrantParkCoffeeShop2.Controllers
 
 
 
-
     }
+
 }

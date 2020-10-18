@@ -7,29 +7,23 @@ using System.Threading.Tasks;
 
 namespace GrantParkCoffeeShop2.ViewsOfShop
 {
-    //private ApplicationDbContext db;
-    //public ProductModel(ApplicationDbContext context)
-    //{
-    //    db = context;
-    //}
+    public class ProductViewModel
+    {
+        public List<Product> Product { get; set; }//Declared list.
+        public int Id { get; private set; }
 
-    //public class ProductViewModel
-    //{
-    //    public List<Product> _products { get; set; }//Declared list.
-    //    public int Id { get; private set; }
+        public List<Product> findAllProducts()//Method to see list.  
+        {
+            var products = db.Product.ToList();
+            return View(products);
+        }
 
-    //    public List<Product> allProducts()//Method to see list.  
-    //    {
-    //        _products = new List<Product>();
-    //        return _products;
-    //    }
-
-    //    public Product find(string id)//Method to search by Id.
-    //    {
-    //        List<Product> products = allProducts();
-    //        var foundProduct = products.Where(a => a.ProductId == Id).FirstOrDefault();//Check "Id" if problem.
-    //        return foundProduct;
-    //    }
+        public Product find(string id)//Method to search by Id.
+        {
+            List<Product> products = findAllProducts();
+            var foundProduct = products.Where(a => a.ProductId == Id).FirstOrDefault();//Check "Id" if problem.
+            return foundProduct;
+        }
 
 
 
@@ -51,5 +45,5 @@ namespace GrantParkCoffeeShop2.ViewsOfShop
 
 
 
-    //}
-}
+        //}
+    }
