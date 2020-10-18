@@ -18,5 +18,18 @@ namespace GrantParkCoffeeShop2.Controllers
 
             return View();
         }
+        private int isExist(string id)
+        {
+            List<Item> cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
+            for (int i = 0; i < cart.Count; i++)
+            {
+                if (cart[i].Product.ProductId.Equals(id))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
     }
 }
