@@ -38,6 +38,20 @@ namespace GrantParkCoffeeShop2.Controllers
             {
                 List<Item> cart = new List<Item>();
                 cart.Add(new Item { Product = productViewModel.find(id), Quantity = 1 });
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
+            }
+            else
+            {
+                List<Item> cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
+                int index = isExist(id);
+                if(index != -1)
+                {
+                    cart[index].Quantity++;
+                }
+                else
+                {
+                    cart.Add(new Item { Product = productViewModel.find(id), Quantity = 1 });
+                }
             }
         }
     }
