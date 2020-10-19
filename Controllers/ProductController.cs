@@ -11,7 +11,7 @@ namespace GrantParkCoffeeShop2.Controllers
 {
     public class ProductController : Controller
     {
-        private ApplicationDbContext db;
+        private readonly ApplicationDbContext db;
         public ProductController(ApplicationDbContext context)
         {
             db = context;

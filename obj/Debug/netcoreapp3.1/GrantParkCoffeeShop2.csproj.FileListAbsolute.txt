@@ -166,3 +166,4 @@ C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeC
 C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\SoloCapstone\GrantPark\EnclaveGrantParkCoffeeShop\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\SoloCapstone\GrantPark\EnclaveGrantParkCoffeeShop\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs
 C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\SoloCapstone\GrantPark\EnclaveGrantParkCoffeeShop\obj\Debug\netcoreapp3.1\Razor\Views\View.cshtml.g.cs
+C:\Users\ehill\Documents\Eric's Present Files\SoftwareAndWebDevelopment\devCodeCamp\GradedAssignments\SoloCapstone\GrantPark\EnclaveGrantParkCoffeeShop\obj\Debug\netcoreapp3.1\Razor\Views\ShoppingCart\Index.cshtml.g.cs

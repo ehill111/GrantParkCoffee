@@ -19,7 +19,7 @@ namespace GrantParkCoffeeShop2.Controllers
 
             return View();
         }
-        private int isExist(string id)
+        private int CartItem(string id)
         {
             List<Item> cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
             for (int i = 0; i < cart.Count; i++)
@@ -37,23 +37,31 @@ namespace GrantParkCoffeeShop2.Controllers
             if(SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart") == null)
             {
                 List<Item> cart = new List<Item>();
-                cart.Add(new Item { Product = productViewModel.find(id), Quantity = 1 });
+                cart.Add(new Item { Product = productViewModel.Find(id), Quantity = 1 });
                 SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
             }
             else
             {
                 List<Item> cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
-                int index = isExist(id);
+                int index = CartItem(id);
                 if(index != -1)
                 {
                     cart[index].Quantity++;
                 }
                 else
                 {
-                    cart.Add(new Item { Product = productViewModel.find(id), Quantity = 1 });
+                    cart.Add(new Item { Product = productViewModel.Find(id), Quantity = 1 });
                 }
                 SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
             }
+            return RedirectToAction("Index");
+        }
+        public IActionResult Remove(string id)
+        {
+            List<Item> cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
+            int index = CartItem(id);
+            cart.RemoveAt(index);
+            SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
             return RedirectToAction("Index");
         }
     }
