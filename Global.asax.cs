@@ -6,6 +6,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Data.Entity;
+using NewGrantParkCoffeeShop.Models;
 
 namespace NewGrantParkCoffeeShop
 {
@@ -16,6 +18,9 @@ namespace NewGrantParkCoffeeShop
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //Initalize the product database.
+            Database.SetInitializer(new ProductDatabaseInitializer());
         }
     }
 }
