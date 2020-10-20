@@ -16,7 +16,7 @@ namespace NewGrantParkCoffeeShop.Models
         public string ImagePath { get; set; }
         [Display(Name = "Price", Order = -9)]
         public double? UnitPrice { get; set; }
-        [Display(Name = "Featured Item!", Order = -9)]
+        [Required, StringLength(10000), Display(Name = "Featured Item!", Order = -9), DataType(DataType.MultilineText)]
         public bool ProductFeatured { get; set; }
         [Display(Name = "On Sale!", Order = -9)]
         public bool ProductOnSale { get; set; }
