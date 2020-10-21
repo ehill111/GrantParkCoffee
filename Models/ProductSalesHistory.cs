@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Web;
 using System.Threading.Tasks;
 
-namespace GrantParkCoffeeShop2.Models
+namespace NewGrantParkCoffeeShop.Models
 {
     public class ProductSalesHistory
     {
