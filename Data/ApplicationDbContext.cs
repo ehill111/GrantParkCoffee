@@ -19,12 +19,15 @@ namespace GrantParkCoffeeShop2.Data
 
         }
 
-        public DbSet<Product> Product { get; set; }
-        public DbSet<ProductSalesHistory> ProductSalesHistory { get; set; }
-        public DbSet<ShoppingCart> ShoppingCart { get; set; }
-        public DbSet<RoomReservation> RoomReservation { get; set; }
-        public DbSet<Customer> Customer { get; set; }
-        public DbSet<Order> Order { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductSalesHistory> ProductSalesHistories { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public DbSet<RoomReservation> RoomReservations { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public object Product { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -39,115 +42,172 @@ namespace GrantParkCoffeeShop2.Data
                     }
                 );
 
-            builder.Entity<Product>().HasData(
-                   new Product
+            builder.Entity<Category>().HasData(
+                 new Category
+                 {
+                     CategoryID = 1,
+                     CategoryName = "Food"
+                 },
+                new Category
+                {
+                    CategoryID = 2,
+                    CategoryName = "Dessert"
+                },
+                new Category
+                {
+                    CategoryID = 3,
+                    CategoryName = "Beverage"
+                }
+                );
 
-                   {
-                       ProductId = 1,
-                       ProductType = "Food",
-                       ProductName = "Bacon, Egg, and Cheese Croissant",
-                       ProductPrice = 6.99,
-                       ProductFeatured = false,
-                       ProductOnDiscountSale = false,
-                       RewardEligible = true,
-                   },
+            builder.Entity<Product>().HasData(
+                    new Product
+                    {
+                        ProductId = 1,
+                        ProductType = "Food",
+                        ProductName = "Bacon, Egg, and Cheese Croissant",
+                        Description = "Available with pork or turkey bacon.",
+                        ImagePath = "",
+                        UnitPrice = 6.99,
+                        ProductFeatured = false,
+                        ProductOnSale = false,
+                        RewardEligible = true,
+                        CategoryID = 1
+                    },
                    new Product
                    {
                        ProductId = 2,
                        ProductType = "Food",
                        ProductName = "Chicken Salad Sandwich",
-                       ProductPrice = 6.99,
+                       Description = "Tasty chicken piled high on wheat, rye, or white bread, with lettuce and tomato.",
+                       ImagePath = "",
+                       UnitPrice = 6.99,
                        ProductFeatured = true,
-                       ProductOnDiscountSale = false,
+                       ProductOnSale = false,
                        RewardEligible = true,
+                       CategoryID = 1
                    },
                     new Product
                     {
                         ProductId = 3,
                         ProductType = "Food",
                         ProductName = "Creamy Cheese Grits",
-                        ProductPrice = 2.99,
+                        Description = "Don't get mad at Momma and Grandmama because their grits aren't as tasty as ours. They're only human!",
+                        ImagePath = "",
+                        UnitPrice = 2.99,
                         ProductFeatured = false,
-                        ProductOnDiscountSale = false,
+                        ProductOnSale = false,
                         RewardEligible = true,
+                        CategoryID = 1
                     },
                      new Product
                      {
                          ProductId = 4,
                          ProductType = "Food",
                          ProductName = "Spinach Salad",
-                         ProductPrice = 6.99,
+                         Description = "Spinach, apples, red onion, toasted walnut halves, dried cranberries, goat cheese, and our special dressing.",
+                         ImagePath = "",
+                         UnitPrice = 6.99,
                          ProductFeatured = false,
-                         ProductOnDiscountSale = false,
+                         ProductOnSale = false,
                          RewardEligible = true,
+                         CategoryID = 1
                      },
                       new Product
                       {
                           ProductId = 5,
                           ProductType = "Dessert",
                           ProductName = "Banana Nut Bread",
-                          ProductPrice = 2.99,
+                          Description = "Would you like a little warm butter on that?",
+                          ImagePath = "",
+                          UnitPrice = 2.99,
                           ProductFeatured = false,
-                          ProductOnDiscountSale = false,
+                          ProductOnSale = false,
                           RewardEligible = true,
+                          CategoryID = 2
                       },
                        new Product
                        {
                            ProductId = 6,
                            ProductType = "Dessert",
                            ProductName = "Chocolate Chip Skone",
-                           ProductPrice = 2.99,
+                           Description = "Chocolate. Chip. Skone. What else is there to say? What? Fresh? Fresh is who we are!",
+                           ImagePath = "",
+                           UnitPrice = 2.99,
                            ProductFeatured = false,
-                           ProductOnDiscountSale = false,
+                           ProductOnSale = false,
                            RewardEligible = true,
+                           CategoryID = 2
                        },
                         new Product
                         {
                             ProductId = 7,
                             ProductType = "Dessert",
                             ProductName = "Blueberry Muffin",
-                            ProductPrice = 2.99,
+                            Description = "Oh. My. Goodness. GOOD!",
+                            ImagePath = "",
+                            UnitPrice = 2.99,
                             ProductFeatured = false,
-                            ProductOnDiscountSale = false,
+                            ProductOnSale = false,
                             RewardEligible = true,
+                            CategoryID = 2
                         },
                          new Product
                          {
                              ProductId = 8,
                              ProductType = "Beverage",
                              ProductName = "Coffee",
-                             ProductPrice = 2.49,
+                             Description = "Every delicious cup of coffee you purchase helps support a local shelter for victims of domestic abuse.",
+                             ImagePath = "",
+                             UnitPrice = 2.49,
                              ProductFeatured = false,
-                             ProductOnDiscountSale = false,
+                             ProductOnSale = false,
                              RewardEligible = true,
+                             CategoryID = 3
                          },
                          new Product
                          {
                              ProductId = 9,
                              ProductType = "Beverage",
                              ProductName = "Juice",
-                             ProductPrice = 2.99,
+                             Description = "Cranberry. Orange. Apple. Just say the word.",
+                             ImagePath = "",
+                             UnitPrice = 2.99,
                              ProductFeatured = false,
-                             ProductOnDiscountSale = false,
+                             ProductOnSale = false,
                              RewardEligible = true,
+                             CategoryID = 3
                          },
                           new Product
                           {
                               ProductId = 10,
                               ProductType = "Beverage",
                               ProductName = "Water",
-                              ProductPrice = 1.49,
+                              Description = "Twelve ounces of life. And you can have it room temperature or cool!",
+                              ImagePath = "",
+                              UnitPrice = 1.49,
                               ProductFeatured = false,
-                              ProductOnDiscountSale = false,
-                              RewardEligible = false
+                              ProductOnSale = false,
+                              RewardEligible = false,
+                              CategoryID = 3
                           }
-                          );
+                    );
 
         }
 
     }
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

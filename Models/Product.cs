@@ -10,18 +10,23 @@ namespace GrantParkCoffeeShop2.Models
     {
         [Key]
         public int ProductId { get; set; }
+        [Display(Name = "Product Type")]
         public string ProductType { get; set; }
-        [Display(Name = "Product Type", Order = -9)]
+        [Display(Name = "Product Name")]
         public string ProductName { get; set; }
-        [Display(Name = "Product Name", Order = -9)]
-        public double ProductPrice { get; set; }
-        [Display(Name = "Product Price", Order = -9)]
+        [Display(Name = "Product Price")]
+        public double UnitPrice { get; set; }
+        [Display(Name = "Product Featured")]
         public bool ProductFeatured { get; set; }
-        [Display(Name = "Product Featured", Order = -9)]
-        public bool ProductOnDiscountSale { get; set; }
-        [Display(Name = "Product On Discount Sale", Order = -9)]
+        public string Description { get; set; }
+        public string ImagePath { get; set; }
+        [Display(Name = "Product On Discount Sale")]
+        public bool ProductOnSale { get; set; }
+        [Display(Name = "Reward Eligible")]
         public bool RewardEligible { get; set; }
-        //[Display(Name = "Reward Eligible", Order = -9)]
+        public int? CategoryID { get; set; }
+        public virtual Category Category { get; set; }
+
     }
     
 }
